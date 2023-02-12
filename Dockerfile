@@ -1,4 +1,4 @@
-FROM wordpress:5-php7.2-fpm-alpine
+FROM wordpress:6-php8.1-fpm-alpine
 LABEL Maintainer="Cheyne Wallace" \
       Description="WordPress & Nginx container based on official Wordpress image"
 
@@ -10,9 +10,6 @@ COPY config/nginx.conf /etc/nginx/nginx.conf
 
 # Configure supervisord
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
-# Configure PHP (merges with other PHP config)
-COPY config/php.ini /usr/local/etc/php/conf.d/php.ini
 
 EXPOSE 80
 
